@@ -21,11 +21,14 @@ PRIME = "prime"
 
 
 def is_prime(num):
+    if num < 2:
+        return False
     for i in range(2, round(num ** 0.5) + 1):
         if num % i == 0:
+            return False
             break
     else:
-        True
+        return True
 
 def filter_numbers(nums,filter_type):
     """
@@ -38,9 +41,9 @@ def filter_numbers(nums,filter_type):
     >>> filter_numbers([2, 3, 4, 5], EVEN)
     <<< [2, 4]
     """
-    if filter_type == ODD:
+    if filter_type == 'odd':
         return list(filter(lambda x:x % 2 == 1, nums))
-    elif filter_type == EVEN:
+    elif filter_type == 'even':
         return list(filter(lambda x:x % 2 == 0, nums))
-    elif filter_type == PRIME:
+    elif filter_type == 'prime':
         return list(filter(is_prime, nums))
