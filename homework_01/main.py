@@ -42,8 +42,8 @@ def filter_numbers(nums,filter_type):
     <<< [2, 4]
     """
     if filter_type == 'odd':
-        return list(filter(lambda x:x % 2 == 1, nums))
+        return list(filter(lambda x: x % 2 == 1, nums))
     elif filter_type == 'even':
-        return list(filter(lambda x:x % 2 == 0, nums))
+        return list(filter(lambda x: x % 2 == 0, nums))
     elif filter_type == 'prime':
         return list(filter(is_prime, nums))
