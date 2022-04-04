@@ -4,11 +4,15 @@
 - NotEnoughFuel
 - CargoOverload
 """
-def LowFuelError(Exception):
+
+
+class LowFuelError(Exception):
     pass
 
-def NotEnoughFuel(Exception):
+
+class NotEnoughFuel(Exception):
     pass
 
-def CargoOverload(Exception):
+
+class CargoOverload(Exception):
     pass
