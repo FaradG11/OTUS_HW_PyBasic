@@ -9,6 +9,7 @@ license = "MIT"
 python = "^3.9"
 fastapi = "^0.75.2"
 uvicorn = "^0.17.6"
+SQLAlchemy = "^1.4.35"
 
 [tool.poetry.dev-dependencies]
 
