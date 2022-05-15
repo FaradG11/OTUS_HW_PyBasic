@@ -19,13 +19,13 @@ def query_all_product() -> list[Productdb]:
 
 def new_income(product_in: ProductIn):
     session: SessionType = Session()
-    product_db = session.query(Productdb).filter_by(pname=product_in.name).one_or_none()
+    product_db = session.query(Productdb).filter_by(name=product_in.name).one_or_none()
     if product_db:
         print('trying to add amount')
         product_db.add_amount(product_in.amount)
 
     else:
-        product_db = Productdb(pname=product_in.name, amount=product_in.amount)
+        product_db = Productdb(name=product_in.name, amount=product_in.amount)
         session.add(product_db)
     session.commit()
     product = Product(id=product_db.id, name=product_in.name, amount=product_in.amount)

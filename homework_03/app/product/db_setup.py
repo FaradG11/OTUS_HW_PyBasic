@@ -31,7 +31,7 @@ Base = declarative_base(bind=engine, cls=Base)
 class Productdb(Base):
     __tablename__ = "product"
 
-    pname = Column(String(20), unique=True)
+    name = Column(String(20), unique=True)
     amount = Column(Integer)
 
     def add_amount(self, amount):
@@ -41,7 +41,7 @@ class Productdb(Base):
         return (
             f"{self.__class__.__name__}("
             f"id={self.id},"
-            f"product={self.pname!r},"
+            f"name={self.name!r},"
             f"amount={self.amount}"
             ")"
         )

@@ -2,16 +2,17 @@ from pydantic import BaseModel, constr, Field
 
 
 class ProductBase(BaseModel):
-    name: constr(min_length=2)
+    name: str
 
 
 class ProductIn(ProductBase):
     amount: int
 
 
-class ProductOut(ProductBase):
+class ProductOut(ProductIn):
     id: int
 
 
 class Product(ProductOut):
-    pass
+    class Config:
+        orm_mode = True
