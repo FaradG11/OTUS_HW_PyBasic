@@ -11,6 +11,8 @@ from sqlalchemy.orm import (
     sessionmaker,
     scoped_session
 )
+import logging
+
 
 DB_NAME = "product-01.db"
 DB_URL = "sqlite:///"+DB_NAME
@@ -20,6 +22,8 @@ engine = create_engine(url=DB_URL)
 session_factory = sessionmaker(bind=engine)
 Session = scoped_session(session_factory)
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("EXECUTION INFORMATION")
 
 class Base:
     id = Column(Integer, primary_key=True)
