@@ -52,11 +52,11 @@ class User(Base):
     username = Column(String(20), unique=True)
     name = Column(String(30))
     email = Column(String(40))
-    posts = relationship("Post", back_populates="users")
+    posts = relationship("Post", back_populates="user")
 
 
 class Post(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String(250))
     body = Column(Text, default='')
-    users = relationship("User", back_populates="posts")
+    user = relationship("User", back_populates="posts")
