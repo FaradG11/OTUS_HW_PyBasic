@@ -39,7 +39,7 @@ class Base:
 
 PG_CONN_URI = os.environ.get("SQLALCHEMY_PG_CONN_URI") or "postgresql+asyncpg://username:password123@localhost:5432/homework_4"
 engine = create_async_engine(PG_CONN_URI, echo=False)
-async_session = sessionmaker(
+Session = sessionmaker(
     engine,
     expire_on_commit=False,
     class_=AsyncSession

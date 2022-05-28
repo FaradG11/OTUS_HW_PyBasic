@@ -16,5 +16,3 @@ async def fetch_json(session: aiohttp.ClientSession, url: str) -> List[dict]:
         data: List = await response.json()
         return data
 
-# async def load_user_data(session: aiohttp.ClientSession, url: str) -> list[dict]:
-

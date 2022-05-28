@@ -17,7 +17,7 @@ import aiohttp
 
 from jsonplaceholder_requests import fetch_json, USERS_DATA_URL, POSTS_DATA_URL
 from models import (
-    async_session,
+    Session as async_session,
     engine,
     Base,
     User,
