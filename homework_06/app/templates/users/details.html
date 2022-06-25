@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  User #{{ user.id }}
+{% endblock %}
+
+
+{% block body %}
+  <h2>Username:  {{ user.username }}</h2>
+  <h2>Full name:  {{ user.name }}</h2>
+  <h2>Email:  {{ user.email }}</h2>
+
+  <br>
+  <div>
+    <a href="{{ url_for('users_app.list') }}">
+      Back to all users
+    </a>
+  </div>
+
+  <br>
+  <div>
+    <button
+      type="button"
+      class="btn btn-danger btn-sm"
+      data-bs-toggle="modal"
+      data-bs-target="#modal-del-user"
+    >Delete user
+    </button>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-del-user" tabindex="-1" aria-labelledby="modal-delete-user-label"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-del-user-title">Delete user #{{ user.user_name }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Delete user <code>{{ user.user_name }}</code>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="delete-user" onclick="deleteItem()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="{{ url_for('static', filename='js/user-details.js') }}"></script>
+
+{% endblock %}

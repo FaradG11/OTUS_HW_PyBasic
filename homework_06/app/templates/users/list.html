@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+  <h1>Users:</h1>
+  {% if users %}
+    <ul class="list-group">
+      {% for user in users %}
+        <li class="list-group-item">
+          <a class="text-decoration-none"
+             href="{{ url_for('users_app.details', user_id=user.id) }}">
+            {{ user.username }} (name: {{user.name}})
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  {% else %}
+    <div><strong>No users</strong></div>
+  {% endif %}
+  <br>
+  <div>
+    <a href="{{ url_for('users_app.add') }}">
+      Add new user
+    </a>
+  </div>
+{% endblock %}
+
+{% block title %}
+  Users list
+{% endblock %}
